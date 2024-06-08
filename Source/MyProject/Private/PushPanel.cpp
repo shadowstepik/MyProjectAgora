@@ -24,9 +24,9 @@ void APushPanel::Interract(bool IsActivate)
 	{
 		Mesh->AddLocalOffset(FVector(0.0f, 0.0f, 10.0f), false, nullptr, ETeleportType::None);
 	}
-	for (auto& Item : BindedActors)
+	for (auto Item : BindedActors)
 	{
-		if (Item->Implements<UBaseInterface>())
+		if (IsValid(Item) && Item->Implements<UBaseInterface>())
 		{
 			Execute_MySetAction(Item,IsActivate);
 		}
